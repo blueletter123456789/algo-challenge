@@ -1,3 +1,6 @@
+# Sample code
+# https://scrapbox.io/pocala-kyopro/%E8%9F%BB%E6%9C%AC_p.67
+
 n = int(input())
 m = int(input())
 lst = list(map(int, input().split()))
