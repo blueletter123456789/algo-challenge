@@ -6,6 +6,7 @@ al = [list() for _ in range(n)]
 for _ in range(m):
     u, v, c = map(int, input().split())
     al[u].append((v, c))
+    # al[v].append((u, c))
 
 dist = [INF]*n
 used = [False]*n
@@ -26,26 +27,26 @@ while True:
 print(dist)
 
 # O(|E|log|V|): 疎グラフ
-import heapq
+# import heapq
 
-INF = 10**5
+# INF = 10**5
 
-n, m, s = map(int, input().split())
-al = [list() for _ in range(n)]
-for _ in range(m):
-    u, v, c = map(int, input().split())
-    al[u].append({'to': v, 'cost': c})
+# n, m, s = map(int, input().split())
+# al = [list() for _ in range(n)]
+# for _ in range(m):
+#     u, v, c = map(int, input().split())
+#     al[u].append({'to': v, 'cost': c})
 
-dist = [INF]*n
-dist[s] = 0
-que = [(0, s)]
-while len(que):
-    p, v = heapq.heappop(que)
-    if dist[v] < p:
-        continue
-    for edge in al[v]:
-        if dist[edge['to']] > dist[v] + edge['cost']:
-            dist[edge['to']] = dist[v] + edge['cost']
-            heapq.heappush(que, (dist[edge['to']], edge['to']))
+# dist = [INF]*n
+# dist[s] = 0
+# que = [(0, s)]
+# while len(que):
+#     p, v = heapq.heappop(que)
+#     if dist[v] < p:
+#         continue
+#     for edge in al[v]:
+#         if dist[edge['to']] > dist[v] + edge['cost']:
+#             dist[edge['to']] = dist[v] + edge['cost']
+#             heapq.heappush(que, (dist[edge['to']], edge['to']))
 
-print(dist)
+# print(dist)
