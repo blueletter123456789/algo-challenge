@@ -20,9 +20,11 @@ else:
 #     """
 #     素数判定(O(√N))
 #     """
-#     for i in range(2, int(n**0.5)+1):
+#     i = 2
+#     while i * i <= n:
 #         if n % i == 0:
 #             return False
+#         i += 1
 #     return n != 1
 
 # def divisor(n):
@@ -30,19 +32,23 @@ else:
 #     約数列挙(O√N)
 #     """
 #     res = list()
-#     for i in range(1, int(n**0.5)+1):
+#     i = 1
+#     while i * i <= n:
 #         if n % i == 0:
 #             res.append(i)
 #             if i != n//i:
 #                 res.append(n//i)
+#         i += 1
 #     return res
 
 # def prime_factor(n):
 #     res = defaultdict(int)
-#     for i in range(2, int(n**0.5)+1):
+#     i = 2
+#     while i * i <= n:
 #         while n % i == 0:
 #             res[i] += 1
 #             n //= i
+#         i += 1
 #     if n != 1:
 #         res[n] = 1
 #     return res
