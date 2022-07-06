@@ -27,7 +27,6 @@ class SegmentTree(object):
     def query(self, a, b):
         # [a, b)の最小値
         l = k = 0
-        r = self.length
         r = self.n
         def _query(a, b, k, l, r):
             # 節点の範囲が検索対象外
