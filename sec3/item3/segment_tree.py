@@ -1,4 +1,4 @@
-class SegmentTree(object):
+class SegmentTreeRMQ(object):
     INF = 1 << 17
 
     def __init__(self, length):
@@ -14,12 +14,12 @@ class SegmentTree(object):
         self.dat = [self.INF]*(2 * self.n - 1)
     
     def update(self, k, a):
-        # 子のインデックス
+        # 挿入する葉インデックス
         k += self.n - 1
         self.dat[k] = a
 
         while k > 0:
-            # 親の接点のインデックス
+            # 親の節点のインデックス
             k = (k - 1) // 2
             # 親から見て子の節点を比較
             self.dat[k] = min(self.dat[k*2+1], self.dat[k*2+2])
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     n = 10
     lst = [0, 1, 2, 9, 8, 7, 6, 5, 4, 3]
     
-    st = SegmentTree(n)
+    st = SegmentTreeRMQ(n)
     for i, val in enumerate(lst):
         st.update(i, val)
     
