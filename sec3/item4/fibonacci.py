@@ -62,6 +62,7 @@ def solved():
 
 #     A = pow(A, n)
 
+#     # a0: 0, a1: 1のため
 #     return A[1][0]
 
 

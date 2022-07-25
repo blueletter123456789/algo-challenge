@@ -25,31 +25,26 @@ def pow(A, n):
 
 def solved():
     """漸化式
-        ai: R,G共に偶数
-        bi: R,Gどちらか奇数
-        ci: R,G共に奇数
 
-        ai+1 = 2*ai + bi
-        bi+1 = 2*ai * 2*bi + 2*ci
-        ci+1 = bi + 2*ci
-
-        |ai+1|   |2 1 0|   |ai|
-        |bi+1| = |2 2 2| * |bi|
-        |ci+1|   |0 1 2|   |ci|
+        G(k1+k2) = Gk1 * Gk2
+        Gk = G1^k
     """
-    A = [
-        [2, 1, 0], 
-        [2, 2, 2], 
-        [0, 1, 2]
-    ]
+    pat = pow(G, k)
 
-    ans = pow(A, n)
-
-    # aiのみが初期に１通り存在し、anの通りを求めるため
-    return ans[0][0]
-
+    # 各頂点から任意の頂点にパスが存在するため合計
+    ans = 0
+    for row in pat:
+        ans += sum(row)
+        ans %= M
+    
+    return ans
 
 if __name__ == '__main__':
     n = int(input())
+    k = int(input())
+
+    G = list()
+    for _ in range(n):
+        G.append(list(map(int, input().split())))
 
     print(solved())
