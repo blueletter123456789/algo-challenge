@@ -1,5 +1,4 @@
 class SegmentTreeRMQ(object):
-    # INF = 1 << 17
 
     def __init__(self, length):
         self.n = 1
@@ -9,7 +8,6 @@ class SegmentTreeRMQ(object):
         while self.n < length:
             self.n *= 2
         
-        # self.dat = [self.INF]*(2 * self.n - 1)
         self.dat = [float('inf') for _ in range(2 * self.n - 1)]
     
     def update(self, k, a):
@@ -26,7 +24,6 @@ class SegmentTreeRMQ(object):
         def _query(a, b, k, l, r):
             if r <= a or b <= l:
                 return float('inf')
-                # return self.INF
             
             if a <= l and r <= b:
                 return self.dat[k]
@@ -44,6 +41,8 @@ def solved():
 
     st.update(1, 0)
     for i in range(m):
+        # dp[T[i]]となるSorterにて区間S[i] <= j <= T[i]で
+        # 最小となる部分列の数
         v = min(dp[T[i]], st.query(S[i], T[i]+1)+1)
         dp[T[i]] = v
         st.update(T[i], v)
