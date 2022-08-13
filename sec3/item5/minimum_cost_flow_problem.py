@@ -1,5 +1,3 @@
-from collections import deque
-
 class Edge(object):
     def __init__(self, to, cap, cost, rev):
         self.to = to
@@ -8,6 +6,10 @@ class Edge(object):
         self.rev = rev
 
 class MinimumCostFlow(object):
+    """
+    参考
+    http://www.iee.e.titech.ac.jp/~shioura/teaching/opt15/optim15-11.pdf
+    """
     def __init__(self, n):
         self.n = n
         self.G = [list() for _ in range(n)]
